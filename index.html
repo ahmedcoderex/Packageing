@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Photography Packages</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      .container {
+        padding: 0 20px;
+        margin: 0 auto;
+      }
+
+      /* Small devices (landscape phones, 576px and up) */
+      @media (min-width: 576px) {
+        .container {
+          max-width: 540px;
+        }
+      }
+
+      /* Medium devices (tablets, 768px and up) */
+      @media (min-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
+      }
+
+      /* Large devices (desktops, 992px and up) */
+      @media (min-width: 992px) {
+        .container {
+          max-width: 960px;
+        }
+      }
+
+      /* Extra large devices (large desktops, 1200px and up) */
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1140px;
+        }
+      }
+
+      /* Extra extra large devices (larger desktops, 1400px and up) */
+      @media (min-width: 1400px) {
+        .container {
+          max-width: 1320px;
+        }
+      }
+
+      /*  Modern Color Scheme */
+
+      body {
+        font-family: "Cairo", sans-serif;
+        background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+        min-height: 100vh;
+        padding: 20px;
+        direction: rtl;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23533a7d' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .option-lang {
+        position: absolute;
+        top: 50px;
+        left: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        color: #e8d5b7;
+        z-index: 10;
+        transition: all 0.3s ease;
+      }
+
+      .option-lang:hover {
+        transform: translateY(-2px);
+        color: #f4a261;
+      }
+
+      .option-lang span {
+        font-size: 20px;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .flag {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        object-fit: cover;
+        overflow: hidden;
+        border: 2px #e8d5b7 solid;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .flag:hover {
+        border-color: #f4a261;
+        transform: scale(1.05);
+      }
+
+      .packages {
+        padding: 40px 20px;
+        position: relative;
+        z-index: 5;
+      }
+
+      .head-title {
+        text-align: center;
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: #e8d5b7;
+        margin-bottom: 60px;
+        text-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        letter-spacing: 2px;
+        position: relative;
+      }
+
+      .head-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #f4a261, #e76f51);
+        border-radius: 2px;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .card {
+        background: linear-gradient(145deg, #2a2d3a, #1e212d);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        padding: 35px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s ease;
+        border: 1px solid rgba(232, 213, 183, 0.1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #f4a261, #e76f51);
+        border-radius: 24px 24px 0 0;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(244, 162, 97, 0.05) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      .card:hover::after {
+        opacity: 1;
+      }
+
+      .card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        border-color: rgba(244, 162, 97, 0.3);
+      }
+
+      .head-card {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #e8d5b7;
+        margin-bottom: 25px;
+        text-align: center;
+        padding: 15px 20px;
+        background: linear-gradient(135deg, #3c3f52, #2a2d3a);
+        border-radius: 16px;
+        border: 2px solid #533a7d;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .options {
+        list-style: none;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 25px;
+      }
+
+      .options li {
+        font-size: 1.1rem;
+        color: #e8d5b7;
+        padding: 12px 16px;
+        background: linear-gradient(135deg, #3c3f52, #2a2d3a);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        overflow: hidden;
+        border: 1px solid rgba(83, 58, 125, 0.3);
+      }
+
+      .options li .ar-text {
+        border-right: 4px solid #f4a261;
+        padding-right: 5px;
+      }
+
+      .options li:hover .ar-text {
+        border-right-color: #e76f51;
+        padding-right: 8px;
+      }
+
+      .options li .en-text {
+        border-left: 4px solid #f4a261;
+        padding-left: 5px;
+      }
+
+      .options li:hover .en-text {
+        border-left-color: #e76f51;
+        padding-left: 8px;
+      }
+
+      .options li:hover {
+        background: linear-gradient(135deg, #533a7d, #3c3f52);
+        transform: translateX(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        border-color: rgba(244, 162, 97, 0.5);
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: #ffffff;
+        background: linear-gradient(135deg, #f4a261, #e76f51);
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(244, 162, 97, 0.4);
+        position: relative;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .price .ar-text::after {
+        content: "جنيه";
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-right: 10px;
+      }
+
+      .price .ar-text::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 10px;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 49%,
+          rgba(255, 255, 255, 0.15) 50%,
+          transparent 51%
+        );
+        animation: shine 3s infinite;
+      }
+
+      .price .en-text::after {
+        content: "Pound ";
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-left: 10px;
+      }
+
+      .price .en-text::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 49%,
+          rgba(255, 255, 255, 0.15) 50%,
+          transparent 51%
+        );
+        animation: shine 3s infinite;
+      }
+
+      @keyframes shine {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      /* Floating particles animation */
+      .packages::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f4a261' fill-opacity='0.05'%3E%3Ccircle cx='10' cy='10' r='1'/%3E%3C/g%3E%3C/svg%3E") repeat;
+        animation: float 20s infinite linear;
+        pointer-events: none;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        100% {
+          transform: translateY(-100px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .head-title {
+          font-size: 2.5rem;
+          margin-bottom: 40px;
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .card {
+          height: auto;
+          min-height: 480px;
+        }
+
+        .packages {
+          padding: 20px 10px;
+        }
+
+        .option-lang {
+          top: 20px;
+          left: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .head-title {
+          font-size: 2rem;
+        }
+
+        .head-card {
+          font-size: 1.5rem;
+        }
+
+        .price {
+          font-size: 2rem;
+        }
+      }
+
+      .en-text {
+        display: none;
+      }
+
+      .ar-text {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="packages">
+      <div class="container">
+        <h1 class="head-title">
+          <span class="ar-text">باقات</span>
+          <span class="en-text">Packages</span>
+        </h1>
+
+        <div class="option-lang" id="option-lang">
+          <span>EN</span>
+          <div class="flag">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+              alt="UK Flag"
+              width="40"
+              height="20"
+            />
+          </div>
+        </div>
+
+        <div class="cards" id="cards" dir="rtl" lang="ar">
+          <div class="card">
+            <h2 class="head-card">MINI WEDDING</h2>
+
+            <ul class="options">
+              <li>
+                <span class="ar-text">مدة التصوير</span>
+                <span class="en-text">2 Hours</span>
+              </li>
+
+              <li>
+                <span class="ar-text">فوتوسيشن</span>
+                <span class="en-text">Photosession</span>
+              </li>
+
+              <li>
+                <span class="ar-text">عدد المصورين</span>
+                <span class="en-text">1 Photographer</span>
+              </li>
+              <li>
+                <span class="ar-text">الاستلام خلال</span>
+                <span class="en-text">21 Days</span>
+              </li>
+
+              <li>
+                <span class="ar-text">طريقة الاستلام</span>
+                <span class="en-text">Drive Link</span>
+              </li>
+
+              <li>
+                <span class="ar-text">عدد الصور</span>
+                <span class="en-text">Unlimited Photos</span>
+              </li>
+            </ul>
+
+            <div class="price">
+              <span class="ar-text">2000</span>
+              <span class="en-text">2000</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="head-card">
+              <span>HALF-DAY</span>
+            </h2>
+            <ul class="options">
+              <li>
+                <span class="ar-text">مدة التصوير</span>
+                <span class="en-text">6 Hours</span>
+              </li>
+              <li>
+                <span class="ar-text">فوتوسيشن</span>
+                <span class="en-text">Photosession</span>
+              </li>
+              <li>
+                <span class="ar-text">تصوير القاعة</span>
+                <span class="en-text">Hall Coverage</span>
+              </li>
+              <li>
+                <span class="ar-text">عدد المصورين</span>
+                <span class="en-text">1 Photographer</span>
+              </li>
+              <li>
+                <span class="ar-text">الاستلام خلال</span>
+                <span class="en-text">21 Days</span>
+              </li>
+              <li>
+                <span class="ar-text">طريقة الاستلام</span>
+                <span class="en-text">Drive Link</span>
+              </li>
+              <li>
+                <span class="ar-text">عدد الصور</span>
+                <span class="en-text">Unlimited Photos</span>
+              </li>
+            </ul>
+            <div class="price">
+              <span class="ar-text">3500</span>
+              <span class="en-text">3500</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="head-card">
+              <span>FULLDAY</span>
+            </h2>
+            <ul class="options">
+              <li>
+                <span class="ar-text">مدة التصوير</span>
+                <span class="en-text">Up to 12 Hours</span>
+              </li>
+              <li>
+                <span class="ar-text">تصوير التجهيزات</span>
+                <span class="en-text">Preparation Coverage</span>
+              </li>
+              <li>
+                <span class="ar-text">فوتوسيشن</span>
+                <span class="en-text">Photosession</span>
+              </li>
+              <li>
+                <span class="ar-text">تصوير القاعة</span>
+                <span class="en-text">Hall Coverage</span>
+              </li>
+              <li>
+                <span class="ar-text">عدد المصورين</span>
+                <span class="en-text">1 Photographer</span>
+              </li>
+              <li>
+                <span class="ar-text">الاستلام خلال</span>
+                <span class="en-text">21 Days</span>
+              </li>
+              <li>
+                <span class="ar-text">طريقة الاستلام</span>
+                <span class="en-text">Drive Link</span>
+              </li>
+              <li>
+                <span class="ar-text">عدد الصور</span>
+                <span class="en-text">Unlimited Photos</span>
+              </li>
+            </ul>
+            <div class="price">
+              <span class="ar-text">5000</span>
+              <span class="en-text">5000</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="head-card">
+              <span>VIP</span>
+            </h2>
+            <ul class="options">
+              <li>
+                <span class="ar-text">مدة التصوير</span>
+                <span class="en-text">Up to 12 Hours</span>
+              </li>
+              <li>
+                <span class="ar-text">تصوير التجهيزات</span>
+                <span class="en-text">Preparation Coverage</span>
+              </li>
+              <li>
+                <span class="ar-text">فوتوسيشن</span>
+                <span class="en-text">Photosession</span>
+              </li>
+              <li>
+                <span class="ar-text">تصوير القاعة</span>
+                <span class="en-text">Hall Coverage</span>
+              </li>
+              <li>
+                <span class="ar-text">ميديا كافريدج</span>
+                <span class="en-text">Media Coverage</span>
+              </li>
+              <li>
+                <span class="ar-text">عدد المصورين</span>
+                <span class="en-text">2 Photographers</span>
+              </li>
+              <li>
+                <span class="ar-text">الاستلام خلال</span>
+                <span class="en-text">21 Days</span>
+              </li>
+              <li>
+                <span class="ar-text">طريقة الاستلام</span>
+                <span class="en-text">Drive Link</span>
+              </li>
+              <li>
+                <span class="ar-text">عدد الصور</span>
+                <span class="en-text">Unlimited Photos</span>
+              </li>
+            </ul>
+            <div class="price">
+              <span class="ar-text">8000</span>
+              <span class="en-text">8000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const optionLang = document.getElementById("option-lang");
+      const cards = document.getElementById("cards");
+
+      const arText = document.querySelectorAll(".ar-text");
+      const enText = document.querySelectorAll(".en-text");
+
+      let currentLang = localStorage.getItem("lang");
+
+      function updateLanguage() {
+        if (currentLang === "ar") {
+          optionLang.innerHTML = `
+            <span>EN</span>
+            <div class="flag">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+                  alt="UK Flag"
+                  width="40"
+                  height="20"
+                />
+                </div>
+            `;
+
+          cards.setAttribute("lang", "ar");
+          cards.setAttribute("dir", "rtl");
+
+          arText.forEach((el) => (el.style.display = "block"));
+          enText.forEach((el) => (el.style.display = "none"));
+
+          localStorage.setItem("lang", "ar");
+        } else {
+          optionLang.innerHTML = `
+            <span>AR</span>
+            <div class="flag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg"
+                alt="Egypt Flag" 
+                width="40" 
+                height="20">
+                </div>
+            `;
+
+          cards.setAttribute("lang", "en");
+          cards.setAttribute("dir", "ltr");
+
+          arText.forEach((el) => (el.style.display = "none"));
+          enText.forEach((el) => (el.style.display = "block"));
+          localStorage.setItem("lang", "en");
+        }
+      }
+
+      // Initialize
+      updateLanguage();
+
+      optionLang.addEventListener("click", () => {
+        currentLang = currentLang === "ar" ? "en" : "ar";
+        updateLanguage();
+      });
+    </script>
+  </body>
+</html>
